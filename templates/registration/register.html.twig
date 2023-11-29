@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+
+<div style="margin-left: 20%;margin-right: 20%;">
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+    {{ form_widget(registrationForm) }}
+
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}

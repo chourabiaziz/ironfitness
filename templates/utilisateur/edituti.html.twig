@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div align="center">
+<h1 style="color: white"> Modifier les utilisateurs</h1>
+<br> 
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+<table align="center" border="1"  style="color: white;">
+<tr>
+<td>{{ form_label(form.username,"Username :") }}</td>
+<td>{{form_widget(form.username,{'attr': {'style': 'width: 300px; height: 20;'}}) }}</td>
+<td>{{ form_errors(form.username) }}</td>
+</tr>
+ <tr>
+        <td>{{ form_label(form.age, "Age :") }}</td>
+        <td>{{ form_widget(form.age,{'attr': {'style': 'width: 300px; height: 20;'}}) }}</td>
+        <td>{{ form_errors(form.age) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.sexe, "Sexe :") }}</td>
+        <td>{{ form_widget(form.sexe) }}</td>
+        <td>{{ form_errors(form.sexe) }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ form_label(form.role, "Role :") }}</td>
+        <td>{{ form_widget(form.role, {'attr': {'style': 'width: 300px; height: 20;'}}) }}</td>
+        <td>{{ form_errors(form.role) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.image, "Image :") }}</td>
+        <td>{{ form_widget(form.image) }}</td>
+        <td>{{ form_errors(form.image) }}</td>
+    </tr>
+   
+     <tr>
+        <td>{{ form_label(form.mail, "Email :") }}</td>
+        <td>{{ form_widget(form.mail ,{'attr': {'style': 'width: 300px; height: 20;'}}) }}</td>
+        <td>{{ form_errors(form.mail) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.mdp, "Password :") }}</td>
+        <td>{{ form_widget(form.mdp,{'attr': {'style': 'width: 300px; height: 20;'}}) }}</td>
+        <td>{{ form_errors(form.mdp) }}</td>
+    </tr>
+
+
+</table>
+{{ form_row(form.Save) }}
+{{ form_end(form) }}
+
+ <a href="{{ path('list_uti') }}" 
+           class="btn btn-return" 
+           style="background-color: #da2424; color: white; padding: 10px 20px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);">
+            Retourner
+        </a>
+</div>
+
+{% endblock %}

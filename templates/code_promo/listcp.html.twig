@@ -1,0 +1,50 @@
+{% extends 'basedb.html.twig' %}
+
+{% block body %}
+	<div class="table-container content-wrapper" style="margin-left: 300px; padding: 20px; margin-top: 50px;">
+		<h1 align="center" style="color: white;">List de nos Codes Promos</h1>
+		<br>
+		<table align="center" border="1" style="color: white;">
+
+			<tr>
+				<th>Code
+				</th>
+				<th>
+					Date d'expiration
+				</th>
+				<th>
+					Description
+				</th>
+
+			</tr>
+			<tr>
+				{% for codepromos in codepromos %}
+					<td>{{ codepromos.code }}</td>
+					<td>{{ codepromos.datedexpiration }}</td>
+					<td>{{ codepromos.description }}</td>
+					<td>
+						<a href="{{ path('codepromo_edit', {'id': codepromos.idCodepromo}) }}" class="btn btn-edit" style="background-color: #da2424; color: white; padding: 10px 20px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);">
+							Modifier
+						</a>
+						<a href="{{ path('codepromo_delete', {'id': codepromos.idCodepromo}) }}" class="btn btn-delete" style="background-color: #da2424; color: white; padding: 10px 20px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);">
+							Supprimer
+						</a>
+					</td>
+
+				</tr>
+			{% endfor %}
+			<tr>
+				<br>
+				<td>
+
+					<a href="{{ path('list_uti') }}" class="btn btn-return" style="background-color: #da2424; color: white; padding: 10px 20px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);">
+						Retourner
+					</a>
+
+				</td>
+			</tr>
+
+
+		</table>
+
+	{% endblock %}

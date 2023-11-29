@@ -1,0 +1,70 @@
+{% extends 'basedb.html.twig' %}
+
+{% block body %}
+
+
+	<div align="center" class="table-container content-wrapper" style="margin-left: 300px; padding: 20px; margin-top: 50px;">
+		<h1 align="center" style="color: white;">List de nos utilisateurs</h1>
+		<br>
+		<table align="center" border="2" style="color: black;">
+
+			<tr>
+				<th>Username</th>
+				<th>
+					Sexe
+				</th>
+				<th>
+					Age
+				</th>
+				<th>
+					Role
+				</th>
+				<th>
+					Image
+				</th>
+				<th>
+					E-mail
+				</th>
+				<th>
+					Mot de passe
+				</th>
+				<th>
+					Action
+				</th>
+
+			</tr>
+			<tr>
+				{% for utilisateur in utilisateur %}
+					<td>{{ utilisateur.username }}</td>
+					<td>{{ utilisateur.sexe }}</td>
+					<td>{{ utilisateur.age }}</td>
+					<td>{{ utilisateur.role }}</td>
+					<td>{{ utilisateur.image }}</td>
+					<td>{{ utilisateur.mail }}</td>
+					<td>{{ utilisateur.mdp }}</td>
+					<td>
+						<a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}" class="btn btn-edit" style="background-color: #da2424; color: white; padding: 10px 20px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);">
+							Modifier
+						</a>
+						<a href="{{ path('utilisateur_delete', {'id': utilisateur.id}) }}" class="btn btn-delete" style="background-color: #da2424; color: white; padding: 10px 20px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);">
+							Supprimer
+						</a>
+					</td>
+
+				</tr>
+			{% endfor %}
+			<tr>
+				<br>
+				<td>
+
+					<a href="{{ path('list_uti') }}" class="btn btn-return" style="background-color: #da2424; color: white; padding: 10px 20px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);">
+						Retourner
+					</a>
+
+				</td>
+			</tr>
+
+		</table>
+
+
+	{% endblock %}
